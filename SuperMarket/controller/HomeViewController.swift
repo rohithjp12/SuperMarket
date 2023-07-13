@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     var viewOpen:Bool = true
-    
+    @IBOutlet var profileImageView:UIImageView!
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var shopCollectionView: UICollectionView!
@@ -35,18 +35,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad()
     {
         
+        
+        super.viewDidLoad()
         self.containerView.isHidden = true
         viewOpen = false
-        
-        
         self.navigationItem.hidesBackButton = true
-        vieww.layer.cornerRadius = 25
-        super.viewDidLoad()
-        searchTextField.layer.cornerRadius = 50
         datasourceAndDelegate()
-        
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(slideToNext), userInfo: nil, repeats: true)
         page.numberOfPages = webSeriesImages.count
+        borderlayout()
+        imageTapGesture()
     }
     
     @IBAction func sideBarBtn(_ sender: Any) {
@@ -54,22 +52,41 @@ class HomeViewController: UIViewController {
         if !viewOpen
         {
             viewOpen = true
-            containerView.frame = CGRect(x: 153, y: 103, width: 153, height: 715)
-            
+            containerView.frame = CGRect(x: 0, y: 57, width: 0, height: 754)
         }
         else
         {
             containerView.isHidden = true
             viewOpen = false
-            containerView.frame = CGRect(x: 153, y: 103, width: 153, height: 715)
+            containerView.frame = CGRect(x: 0, y: 57, width: 0, height: 754)
         }
-
+    }
+    func borderlayout()
+    {
+        profileImageView.layer.cornerRadius = 75
+        vieww.layer.cornerRadius = 25
+        searchTextField.layer.cornerRadius = 50
+    }
+    func imageTapGesture()
+    {
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget( self,action:#selector(HomeViewController.openGallery(tapGesture:)))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(tapGesture)
+        if   let loadedImage = UIImage(data: UserDefaults.standard.data(forKey: "uploadedImage")!)
+        {
+            profileImageView.image = loadedImage
+        }
+        else
+        {
+            print("not access")
+        }
         
     }
-    
-    
-    
-    
+        @objc func openGallery(tapGesture: UITapGestureRecognizer)
+        {
+            self.setupImagePicker()
+        }
     
     @objc func slideToNext()
     {
@@ -186,7 +203,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             {
             case "Atta":
                 SuperMartSecondViewController.shop = ShopDatabaseClass.instance.attaRiceCategories()
-                
+                SuperMartSecondViewController.shopp = ShopDatabaseClass.instance.attaRiceCategories()
             case "House Cleaning":
                 SuperMartSecondViewController.shop = ShopDatabaseClass.instance.houseCleaningCategories()
 
@@ -248,8 +265,40 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             return CGSize(width: width/3-10, height: width/3-10)
         }
     }
-  
-    
-    
+
 }
+
+
+
+
+
+//***************** uiimage picket extension  **********************
+
+extension HomeViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate
+{
+    
+    func setupImagePicker()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum)
+        {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            self.present(imagePicker,animated: true,completion: nil)
+        }
+    }
+
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        profileImageView.image = image
+        self.dismiss(animated:true,completion:nil)
+        UserDefaults.standard.setValue(image.pngData()!, forKey: "uploadedImage")
+
+    }
+    
+
+    
+    }
 

@@ -29,6 +29,7 @@
 		5DA1196D2A4F65B400773E30 /* CookingIdeaCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1196C2A4F65B400773E30 /* CookingIdeaCell1.swift */; };
 		5DA1196F2A4F65F900773E30 /* shopByCategoryModel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1196E2A4F65F900773E30 /* shopByCategoryModel1.swift */; };
 		5DA119712A4F660E00773E30 /* CookingIdeaModel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA119702A4F660E00773E30 /* CookingIdeaModel1.swift */; };
+		5DDDAF532A5AC9FF008D7906 /* PriceAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDAF522A5AC9FF008D7906 /* PriceAddViewController.swift */; };
 		FD618AB250C5FC6B70B4C1B7 /* Pods_SuperMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DFE17414FD2C9EDE2F3871 /* Pods_SuperMarket.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		5DA1196C2A4F65B400773E30 /* CookingIdeaCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingIdeaCell1.swift; sourceTree = "<group>"; };
 		5DA1196E2A4F65F900773E30 /* shopByCategoryModel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopByCategoryModel1.swift; sourceTree = "<group>"; };
 		5DA119702A4F660E00773E30 /* CookingIdeaModel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingIdeaModel1.swift; sourceTree = "<group>"; };
+		5DDDAF522A5AC9FF008D7906 /* PriceAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAddViewController.swift; sourceTree = "<group>"; };
 		85DFE17414FD2C9EDE2F3871 /* Pods_SuperMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C437E5DD9D1F5788EB3F5E36 /* Pods-SuperMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperMarket.debug.xcconfig"; path = "Target Support Files/Pods-SuperMarket/Pods-SuperMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 		5DA119652A4F615900773E30 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				5DDDAF522A5AC9FF008D7906 /* PriceAddViewController.swift */,
 				5D6E1CD92A5030F9008C3ADA /* SuperMartSecondViewController.swift */,
 				5DA119512A4F555200773E30 /* HomeViewController.swift */,
 			);
@@ -315,6 +318,7 @@
 				5D1214EE2A52BA73007CABC6 /* autoScrollCollectionViewCell.swift in Sources */,
 				5DA119522A4F555200773E30 /* HomeViewController.swift in Sources */,
 				5D865FCD2A50DB4A0077C6FB /* MainViewController.swift in Sources */,
+				5DDDAF532A5AC9FF008D7906 /* PriceAddViewController.swift in Sources */,
 				5DA1196D2A4F65B400773E30 /* CookingIdeaCell1.swift in Sources */,
 				5D6E1CDC2A503149008C3ADA /* ShopByCategoryCell2.swift in Sources */,
 				5D6E1CDA2A5030F9008C3ADA /* SuperMartSecondViewController.swift in Sources */,

@@ -10,12 +10,13 @@ import Firebase
 
 class SuperMartSecondViewController: UIViewController {
 
+     var c = 0
     @IBOutlet weak var logOutBtn: UIBarButtonItem!
     
     @IBOutlet weak var shopCollectionView2: UICollectionView!
     
     static var shop = [shopCategory2]()
-    static var shopp = [ShopCategory1]()
+    static var shopp = [shopCategory2]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +60,18 @@ extension SuperMartSecondViewController:UICollectionViewDelegate,UICollectionVie
         print("my cell data \(ab)")
         cell?.shopSetupCell2(_shopcategory: ab)
         //cell?.layer.cornerRadius = 5
+        
+        cell?.btn.addTarget(self, action: #selector(addToButton), for: .touchUpInside)
         return cell!
+    }
+    @objc func addToButton(sender:UIButton)
+    {
+        let indexpath1 = IndexPath(row: sender.tag, section: 0)
+        
+        c = c + SuperMartSecondViewController.shop[indexpath1.row].productPrice
+        
+     // print("my price  \(SuperMartSecondViewController.shop[indexpath1.row].productPrice)")
+        PriceAddViewController.select3 = c
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5

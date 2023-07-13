@@ -13,6 +13,9 @@ class ShopByCategoryCell1: UICollectionViewCell {
     @IBOutlet weak var shopImage1: UIImageView!
     @IBOutlet weak var shopLabel1: UILabel!
     
+   
+    
+    
     
     override func awakeFromNib() {
       

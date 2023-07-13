@@ -246,6 +246,21 @@
                                                 <color key="pageIndicatorTintColor" systemColor="systemBackgroundColor"/>
                                                 <color key="currentPageIndicatorTintColor" systemColor="tintColor"/>
                                             </pageControl>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkT-kh-WCy">
+                                                <rect key="frame" x="0.0" y="57" width="243" height="754"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bingo" translatesAutoresizingMaskIntoConstraints="NO" id="gJV-y3-80g">
+                                                        <rect key="frame" x="45" y="61" width="148" height="150"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.52580544920000005" green="0.96992663649999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="754" id="0Ke-PF-0LJ"/>
+                                                    <constraint firstAttribute="width" constant="243" id="p9X-76-2Ar"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -263,11 +278,13 @@
                                             <constraint firstAttribute="trailing" secondItem="WtS-oE-fGq" secondAttribute="trailing" id="IpO-RS-RRq"/>
                                             <constraint firstItem="WtS-oE-fGq" firstAttribute="top" secondItem="bSM-gN-s8Q" secondAttribute="bottom" constant="15" id="Pft-Tg-2zh"/>
                                             <constraint firstAttribute="height" constant="1500" id="Qeb-xW-p9M"/>
+                                            <constraint firstItem="WkT-kh-WCy" firstAttribute="top" secondItem="bHP-QU-Yfg" secondAttribute="bottom" id="S7e-dq-R4G"/>
                                             <constraint firstAttribute="trailing" secondItem="bHP-QU-Yfg" secondAttribute="trailing" id="SQO-61-o3y"/>
                                             <constraint firstItem="Y9a-WT-2Zm" firstAttribute="top" secondItem="dwd-Hf-Joy" secondAttribute="bottom" constant="26" id="TxO-ly-ibF"/>
                                             <constraint firstAttribute="trailing" secondItem="bSM-gN-s8Q" secondAttribute="trailing" id="U6i-Hg-CDd"/>
                                             <constraint firstItem="7Cg-Eu-om8" firstAttribute="top" secondItem="hAU-Lg-mcf" secondAttribute="bottom" constant="220" id="VWe-jF-FaL"/>
                                             <constraint firstItem="bHP-QU-Yfg" firstAttribute="top" secondItem="xOH-Kf-dVd" secondAttribute="top" constant="-102" id="ZvP-c3-MSi"/>
+                                            <constraint firstItem="WkT-kh-WCy" firstAttribute="leading" secondItem="xOH-Kf-dVd" secondAttribute="leading" id="bDm-Oo-yfX"/>
                                             <constraint firstItem="Q8L-xF-EjU" firstAttribute="leading" secondItem="xOH-Kf-dVd" secondAttribute="leading" constant="85" id="cHI-Oa-QMx"/>
                                             <constraint firstItem="7Cg-Eu-om8" firstAttribute="leading" secondItem="xOH-Kf-dVd" secondAttribute="leading" constant="8" id="cW3-NQ-vP6"/>
                                             <constraint firstItem="bHP-QU-Yfg" firstAttribute="leading" secondItem="xOH-Kf-dVd" secondAttribute="leading" id="cxv-8a-auw"/>
@@ -305,16 +322,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Super Mart" id="aGx-MH-ami">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="IBi-LG-tZJ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="IBi-LG-tZJ">
+                            <connections>
+                                <action selector="sideBarBtn:" destination="BYZ-38-t0r" id="g1V-FN-Viv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="CookiesFoodCollectionView" destination="Y9a-WT-2Zm" id="YIc-AN-bSA"/>
+                        <outlet property="containerView" destination="WkT-kh-WCy" id="B31-Tv-lcf"/>
                         <outlet property="mycollectionView" destination="rho-r9-Lmj" id="cKC-XU-ml8"/>
                         <outlet property="page" destination="Q8L-xF-EjU" id="V02-oM-hPJ"/>
+                        <outlet property="profileImageView" destination="gJV-y3-80g" id="ab2-3I-Pkk"/>
                         <outlet property="searchTextField" destination="hAU-Lg-mcf" id="lNF-bn-wdB"/>
                         <outlet property="shopCollectionView" destination="bSM-gN-s8Q" id="LQ8-hs-wAC"/>
                         <outlet property="vieww" destination="bHP-QU-Yfg" id="Wt7-M0-lHA"/>
-                        <segue destination="Fwx-L2-eoj" kind="show" identifier="top" id="fM4-QF-xSr"/>
+                        <segue destination="Fwx-L2-eoj" kind="show" identifier="top" id="zgf-hR-Ieg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -386,6 +409,10 @@
                                                         <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                                         <color key="baseForegroundColor" red="0.1102466357" green="0.42698365160000001" blue="0.192257551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="btn:" destination="sGT-sm-3zQ" eventType="touchUpInside" id="rRM-pG-iC5"/>
+                                                        <action selector="myAddButton:" destination="sGT-sm-3zQ" eventType="touchUpInside" id="M8v-1a-hdg"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -427,21 +454,72 @@
                             <constraint firstItem="kKf-XE-Ndt" firstAttribute="leading" secondItem="xDU-vF-kGF" secondAttribute="leading" id="ojs-SC-H3Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pee-Ae-qc3">
-                        <barButtonItem key="rightBarButtonItem" title="LogOut" id="dWG-yv-ZjQ">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ItW-5F-stO">
+                        <barButtonItem key="rightBarButtonItem" title="TotalAmount-&gt;" id="5Z1-nw-uoj">
                             <connections>
-                                <action selector="logOutbutton:" destination="Fwx-L2-eoj" id="flU-f9-rjf"/>
+                                <segue destination="OQl-up-7v4" kind="show" id="87j-rL-rQW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="logOutBtn" destination="dWG-yv-ZjQ" id="uck-q0-lsU"/>
                         <outlet property="shopCollectionView2" destination="kKf-XE-Ndt" id="qTv-iD-7Ul"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZF-zJ-U4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sGT-sm-3zQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1325.9541984732823" y="43.661971830985919"/>
+            <point key="canvasLocation" x="1469" y="44"/>
+        </scene>
+        <!--Price Add View Controller-->
+        <scene sceneID="aG4-d0-38X">
+            <objects>
+                <viewController id="OQl-up-7v4" customClass="PriceAddViewController" customModule="SuperMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j5G-Nz-7VL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei1-CW-WpS">
+                                <rect key="frame" x="213" y="204" width="180" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="7eu-zd-AFA"/>
+                                    <constraint firstAttribute="width" constant="180" id="hvr-Kq-CZK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price-&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHY-sd-04Y">
+                                <rect key="frame" x="0.0" y="223" width="205" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="8Lz-oN-i8I"/>
+                                    <constraint firstAttribute="width" constant="205" id="AHW-iy-R1d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SEN-Ke-rjU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ei1-CW-WpS" firstAttribute="top" secondItem="SEN-Ke-rjU" secondAttribute="top" constant="101" id="DJG-dE-gfO"/>
+                            <constraint firstItem="ei1-CW-WpS" firstAttribute="trailing" secondItem="SEN-Ke-rjU" secondAttribute="trailing" id="aWZ-3c-oUq"/>
+                            <constraint firstItem="SEN-Ke-rjU" firstAttribute="bottom" secondItem="ei1-CW-WpS" secondAttribute="bottom" constant="567" id="ipc-YQ-egt"/>
+                            <constraint firstItem="xHY-sd-04Y" firstAttribute="leading" secondItem="SEN-Ke-rjU" secondAttribute="leading" id="nlc-Cm-LOg"/>
+                            <constraint firstItem="SEN-Ke-rjU" firstAttribute="bottom" secondItem="xHY-sd-04Y" secondAttribute="bottom" constant="568" id="p5e-ZM-NmQ"/>
+                            <constraint firstItem="xHY-sd-04Y" firstAttribute="top" secondItem="SEN-Ke-rjU" secondAttribute="top" constant="120" id="run-zn-n6b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zNu-ZJ-Yea"/>
+                    <connections>
+                        <outlet property="totalAmount" destination="ei1-CW-WpS" id="WwR-ZT-Qk8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Hz-x6-HQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188.5496183206105" y="43.661971830985919"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="oMF-Ky-fmG">
@@ -823,6 +901,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="basket3" width="267" height="189"/>
+        <image name="bingo" width="225" height="225"/>
         <image name="grofers" width="944" height="2092"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
