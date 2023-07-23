@@ -11,42 +11,18 @@ import Firebase
 class SuperMartSecondViewController: UIViewController {
 
      var c = 0
-    @IBOutlet weak var logOutBtn: UIBarButtonItem!
-    
+    static var j = 0
     @IBOutlet weak var shopCollectionView2: UICollectionView!
     
     static var shop = [shopCategory2]()
-    static var shopp = [shopCategory2]()
+   // static var shopp = [shopCategory2]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("my data  \(SuperMartSecondViewController.shop)")
     }
     
-    
-    @IBAction func logOutbutton(_ sender: UIBarButtonItem) {
-        
-        do
-        {
-            try FirebaseAuth.Auth.auth().signOut()
-           // logoutbtn.removeFromSuperview()
-            // logoutbtn.resignFirstResponder()
-            
-           // self.performSegue(withIdentifier: "ViewController", sender: self)
 
-            print("logout is successful")
-        }
-        catch
-        {
-            print("An error occured")
-        }
-
-        
-    }
-    
-    
-    
-    
 }
 extension SuperMartSecondViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
@@ -67,12 +43,11 @@ extension SuperMartSecondViewController:UICollectionViewDelegate,UICollectionVie
     @objc func addToButton(sender:UIButton)
     {
         let indexpath1 = IndexPath(row: sender.tag, section: 0)
-        
         c = c + SuperMartSecondViewController.shop[indexpath1.row].productPrice
-        
-     // print("my price  \(SuperMartSecondViewController.shop[indexpath1.row].productPrice)")
         PriceAddViewController.select3 = c
     }
+   
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }

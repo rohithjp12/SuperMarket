@@ -264,10 +264,6 @@ class ShopDatabaseClass
     {
        return medicinecategori
     }
-    
-    
-    
-    
 }
 
 
@@ -277,16 +273,134 @@ class cookiesDatabaseClass
     static let cookiesInstance = cookiesDatabaseClass()
         
     private let cookiesIdeasCategories = [
-           CookingCategory(_productImgname: "pizza", _productTitle: "Pizza"),
-           CookingCategory(_productImgname: "burger", _productTitle: "Burger"),
-           CookingCategory(_productImgname: "cake", _productTitle: "Cake"),
-           CookingCategory(_productImgname: "samausa", _productTitle: "Samausa"),
-           CookingCategory(_productImgname: "veg seekh", _productTitle: "Veg Seekh"),
-           CookingCategory(_productImgname: "roast chicken", _productTitle: "Roast Chiken"),
-           CookingCategory(_productImgname: "gheeRoast", _productTitle: "Ghee Roast Dhosa"),
+           CookingCategory(_productImgname: "pizza1", _productTitle: "Pizza"),
+           CookingCategory(_productImgname: "burger1", _productTitle: "Burger"),
+           CookingCategory(_productImgname: "paneer1", _productTitle: "Paneer"),
+           CookingCategory(_productImgname: "cake1", _productTitle: "Cake"),
+           CookingCategory(_productImgname: "samausa1", _productTitle: "Samausa"),
+           CookingCategory(_productImgname: "seekh1", _productTitle: "Veg Seekh"),
+           CookingCategory(_productImgname: "chiken1", _productTitle: "Roast Chiken"),
+           CookingCategory(_productImgname: "dhosa1", _productTitle: "Ghee Roast Dhosa"),
     ]
     func CookiesCategories1() ->[CookingCategory]
     {
         return cookiesIdeasCategories
     }
+    private let pizzacategori = [
+         shopCategory2(_productImgname: "cheese", _productTitle: "Cheese pizza", _productPrice: 45),
+         shopCategory2(_productImgname: "onion", _productTitle: "Onion pizza", _productPrice: 10),
+         shopCategory2(_productImgname: "curd", _productTitle: "Curd Pizza", _productPrice: 5),
+         shopCategory2(_productImgname: "roast Pizza", _productTitle: "Roast Pizza", _productPrice: 6),
+         shopCategory2(_productImgname: "vegeterian", _productTitle: "Vegeterian pizza", _productPrice: 5),
+         shopCategory2(_productImgname: "whole", _productTitle: "Whole Pizza", _productPrice: 10),
+         shopCategory2(_productImgname: "sabikatul", _productTitle: "Sabikatul Pizza", _productPrice: 10),
+         shopCategory2(_productImgname: "slice", _productTitle: "Slice Pizza", _productPrice: 55),
+         shopCategory2(_productImgname: "wineparing", _productTitle: "WineParing pizza", _productPrice: 44),
+         shopCategory2(_productImgname: "whole", _productTitle: "Whole pizza", _productPrice: 45)
+    ]
+    func pizzaCategory()->[shopCategory2]
+    {
+        return pizzacategori
+    }
+    private let burgercategori = [
+         shopCategory2(_productImgname: "veg", _productTitle: "veg burger", _productPrice: 45),
+         shopCategory2(_productImgname: "bigburger", _productTitle: "big burger", _productPrice: 10),
+         shopCategory2(_productImgname: "cheeseburger", _productTitle: "cheeseburger", _productPrice: 5),
+         shopCategory2(_productImgname: "desiburger", _productTitle: "desiburger", _productPrice: 6),
+         shopCategory2(_productImgname: "humburger", _productTitle: "Humburger", _productPrice: 5),
+         shopCategory2(_productImgname: "macdonald", _productTitle: "Macdonald", _productPrice: 10),
+         shopCategory2(_productImgname: "nonbhej", _productTitle: "Nonbhej", _productPrice: 10),
+         shopCategory2(_productImgname: "veg", _productTitle: "Veg burger", _productPrice: 55),
+    ]
+    func burgerCategory()->[shopCategory2]
+    {
+        return burgercategori
+    }
+    private let samausacategori = [
+         shopCategory2(_productImgname: "norma;", _productTitle: "Desi samausa", _productPrice: 45),
+         shopCategory2(_productImgname: "paneer", _productTitle: "Paneer samausa", _productPrice: 10),
+         shopCategory2(_productImgname: "withCream", _productTitle: "Cream samausa", _productPrice: 5),
+         shopCategory2(_productImgname: "veg", _productTitle: "veg Samausa", _productPrice: 6),
+         shopCategory2(_productImgname: "simples", _productTitle: "samausa", _productPrice: 5),
+         shopCategory2(_productImgname: "paneercheese", _productTitle: "Cheese samausa", _productPrice: 10),
+         shopCategory2(_productImgname: "nonveg", _productTitle: "Nonbhej samausa", _productPrice: 10),
+         shopCategory2(_productImgname: "keema", _productTitle: "keema samausa", _productPrice: 55),
+    ]
+    func samausaCategory()->[shopCategory2]
+    {
+        return samausacategori
+    }
+    private let vegSikhcategori = [
+         shopCategory2(_productImgname: "cheesec", _productTitle: "Cheesec", _productPrice: 45),
+         shopCategory2(_productImgname: "chickenseekhkawab", _productTitle: "chickenseekhkawab", _productPrice: 10),
+         shopCategory2(_productImgname: "seekh1", _productTitle: "seekh", _productPrice: 5),
+         shopCategory2(_productImgname: "seekhkawab", _productTitle: "seekhkawab", _productPrice: 6),
+         shopCategory2(_productImgname: "vegetable", _productTitle: "vegetable", _productPrice: 5),
+         shopCategory2(_productImgname: "vegseekh", _productTitle: "vegseekh", _productPrice: 10)
+      
+         
+    ]
+    func vegSikhCategory()->[shopCategory2]
+    {
+        return vegSikhcategori
+    }
+    private let roastChickencategori = [
+         shopCategory2(_productImgname: "chickenChili", _productTitle: "chickenChili", _productPrice: 45),
+         shopCategory2(_productImgname: "chickendishes", _productTitle: "chickendishes", _productPrice: 10),
+         shopCategory2(_productImgname: "healthychicken", _productTitle: "healthychicken", _productPrice: 5),
+         shopCategory2(_productImgname: "legpiece", _productTitle: "legpiece", _productPrice: 6),
+         shopCategory2(_productImgname: "onionchicken", _productTitle: "onionchicken", _productPrice: 5),
+         shopCategory2(_productImgname: "smothered", _productTitle: "smothered", _productPrice: 10),
+         shopCategory2(_productImgname: "southchicken", _productTitle: "southchicken", _productPrice: 10),
+         shopCategory2(_productImgname: "stream", _productTitle: "stream", _productPrice: 55),
+    ]
+    func roastChickenCategory()->[shopCategory2]
+    {
+        return roastChickencategori
+    }
+    private let dhosacategori = [
+         shopCategory2(_productImgname: "kanchipuram", _productTitle: "kanchipuram", _productPrice: 45),
+         shopCategory2(_productImgname: "laserknown", _productTitle: "laserknown", _productPrice: 10),
+         shopCategory2(_productImgname: "millet", _productTitle: "millet", _productPrice: 5),
+         shopCategory2(_productImgname: "mixeddal", _productTitle: "mixeddal", _productPrice: 6),
+         shopCategory2(_productImgname: "oats", _productTitle: "oats", _productPrice: 5),
+         shopCategory2(_productImgname: "simpled", _productTitle: "simpled", _productPrice: 10),
+         shopCategory2(_productImgname: "southe", _productTitle: "southe", _productPrice: 10),
+         shopCategory2(_productImgname: "masala", _productTitle: "masala", _productPrice: 55),
+    ]
+    func dhosaCategory()->[shopCategory2]
+    {
+        return dhosacategori
+    }
+    private let paneercategori = [
+         shopCategory2(_productImgname: "kadhai paneer", _productTitle: "kadhai paneer", _productPrice: 45),
+         shopCategory2(_productImgname: "matar paneer", _productTitle: "matar paneer", _productPrice: 10),
+         shopCategory2(_productImgname: "sahipaneer", _productTitle: "sahipaneer", _productPrice: 5),
+         shopCategory2(_productImgname: "paneerbuttermasala", _productTitle: "paneerbuttermasala", _productPrice: 6),
+         shopCategory2(_productImgname: "paneer tikka", _productTitle: "paneer tikka", _productPrice: 5),
+         shopCategory2(_productImgname: "Paneer Recipes", _productTitle: "paneer Recipes", _productPrice: 10),
+         shopCategory2(_productImgname: "paneer dishes", _productTitle: "paneer dishes", _productPrice: 10),
+         shopCategory2(_productImgname: "paneer butter", _productTitle: "paneer butter", _productPrice: 55),
+
+    ]
+    func paneerCategory()->[shopCategory2]
+    {
+        return paneercategori
+    }
+    private let cakecategori = [
+         shopCategory2(_productImgname: "birthday", _productTitle: "birthday", _productPrice: 45),
+         shopCategory2(_productImgname: "blackforest", _productTitle: "blackforest", _productPrice: 10),
+         shopCategory2(_productImgname: "cakehole", _productTitle: "cakehole", _productPrice: 5),
+         shopCategory2(_productImgname: "chocolatee", _productTitle: "chocolatee", _productPrice: 6),
+         shopCategory2(_productImgname: "colorful", _productTitle: "colorful", _productPrice: 5),
+         shopCategory2(_productImgname: "concreate", _productTitle: "concreate", _productPrice: 10),
+         shopCategory2(_productImgname: "cream", _productTitle: "cream", _productPrice: 10),
+         shopCategory2(_productImgname: "pesti", _productTitle: "pesti", _productPrice: 55),
+    ]
+    func cakeCategory()->[shopCategory2]
+    {
+        return cakecategori
+    }
+
+    
 }

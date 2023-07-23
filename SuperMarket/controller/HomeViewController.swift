@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
@@ -14,13 +15,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     var viewOpen:Bool = true
     @IBOutlet var profileImageView:UIImageView!
-    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var shopCollectionView: UICollectionView!
     @IBOutlet weak var CookiesFoodCollectionView: UICollectionView!
     @IBOutlet weak var mycollectionView:UICollectionView!
     @IBOutlet var page:UIPageControl!
-    
     @IBOutlet weak var vieww: UIView!
     
     
@@ -34,8 +33,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad()
     {
-        
-        
         super.viewDidLoad()
         self.containerView.isHidden = true
         viewOpen = false
@@ -46,6 +43,23 @@ class HomeViewController: UIViewController {
         borderlayout()
         imageTapGesture()
     }
+    
+    
+    
+    @IBAction func logoutBtn(_ sender: UIButton)
+    {
+        do
+        {
+            try FirebaseAuth.Auth.auth().signOut()
+            navigationController?.popViewController(animated: true)
+        }
+        catch
+        {
+            print("logout is not Succesful")
+        }
+    }
+
+    
     
     @IBAction func sideBarBtn(_ sender: Any) {
         containerView.isHidden = false
@@ -61,12 +75,14 @@ class HomeViewController: UIViewController {
             containerView.frame = CGRect(x: 0, y: 57, width: 0, height: 754)
         }
     }
+    
     func borderlayout()
     {
         profileImageView.layer.cornerRadius = 75
         vieww.layer.cornerRadius = 25
         searchTextField.layer.cornerRadius = 50
     }
+    
     func imageTapGesture()
     {
         let tapGesture = UITapGestureRecognizer()
@@ -81,7 +97,6 @@ class HomeViewController: UIViewController {
         {
             print("not access")
         }
-        
     }
         @objc func openGallery(tapGesture: UITapGestureRecognizer)
         {
@@ -166,17 +181,9 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             {
                 let index_path = cookiesDatabaseClass.cookiesInstance.CookiesCategories1()[indexPath.row]
                 cell.CookingSetUpCell(_cookingCell: index_path)
-                // cell.layer.cornerRadius = 10
-                // cell.layer.borderWidth = 2
-                // cell.layer.borderColor = UIColor.white.cgColor
-                
                 return cell
             }
-           // return CookingIdeaCell1()
         }
-        
-        
-        
         
         else  if collectionView == self.mycollectionView
         {
@@ -185,9 +192,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             cell.layer.cornerRadius = 25
             return cell
         }
-        
         return CookingIdeaCell1()
-        
     }
 
 
@@ -198,12 +203,11 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             let  catee = ShopDatabaseClass.instance.ShopCategories1()[indexPath.row]
             let g = catee.productTitle
 
-            
             switch g
             {
             case "Atta":
                 SuperMartSecondViewController.shop = ShopDatabaseClass.instance.attaRiceCategories()
-                SuperMartSecondViewController.shopp = ShopDatabaseClass.instance.attaRiceCategories()
+
             case "House Cleaning":
                 SuperMartSecondViewController.shop = ShopDatabaseClass.instance.houseCleaningCategories()
 
@@ -241,6 +245,34 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
             }
             performSegue(withIdentifier: "top", sender: catee)
         }
+        else if collectionView == self.CookiesFoodCollectionView
+        {
+            let cook = cookiesDatabaseClass.cookiesInstance.CookiesCategories1()[indexPath.row]
+            let ck = cook.productTitle
+            
+            switch ck
+            {
+            case "Pizza":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.pizzaCategory()
+            case "Burger":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.burgerCategory()
+            case "Cake":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.cakeCategory()
+            case "Samausa":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.samausaCategory()
+            case "Veg Seekh":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.vegSikhCategory()
+            case "Roast Chiken":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.roastChickenCategory()
+            case "Ghee Roast Dhosa":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.dhosaCategory()
+            case "Paneer":
+                CookingIdeaViewController.cookies = cookiesDatabaseClass.cookiesInstance.paneerCategory()
+            default:
+                print("abc")
+            }
+            performSegue(withIdentifier: "cook", sender: cook)
+        }
        
     }
     
@@ -272,11 +304,10 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
 
 
 
-//***************** uiimage picket extension  **********************
+//***************** uiimage picker extension  **********************
 
 extension HomeViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate
 {
-    
     func setupImagePicker()
     {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum)
@@ -288,17 +319,11 @@ extension HomeViewController:UIImagePickerControllerDelegate,UINavigationControl
             self.present(imagePicker,animated: true,completion: nil)
         }
     }
-
-
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         profileImageView.image = image
         self.dismiss(animated:true,completion:nil)
         UserDefaults.standard.setValue(image.pngData()!, forKey: "uploadedImage")
-
     }
-    
-
-    
     }
 
