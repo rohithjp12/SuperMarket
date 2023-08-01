@@ -11,15 +11,23 @@ import Firebase
 class SuperMartSecondViewController: UIViewController {
 
      var c = 0
+    var d = 0
     static var j = 0
     @IBOutlet weak var shopCollectionView2: UICollectionView!
-    
     static var shop = [shopCategory2]()
-   // static var shopp = [shopCategory2]()
+
+    
+    
+    
+    @IBOutlet weak var showcartBtn: UIButton!
+    @IBOutlet weak var nextlbl: UILabel!
+    @IBOutlet weak var cartShowView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("my data  \(SuperMartSecondViewController.shop)")
+        cartShowView.layer.cornerRadius = 20
+        showcartBtn.layer.cornerRadius = 20
+        nextlbl.layer.cornerRadius = 20
+       // print("my data  \(SuperMartSecondViewController.shop)")
     }
     
 
@@ -35,15 +43,20 @@ extension SuperMartSecondViewController:UICollectionViewDelegate,UICollectionVie
         let ab = SuperMartSecondViewController.shop[indexPath.row]
         print("my cell data \(ab)")
         cell?.shopSetupCell2(_shopcategory: ab)
-        //cell?.layer.cornerRadius = 5
-        
-        cell?.btn.addTarget(self, action: #selector(addToButton), for: .touchUpInside)
+        cell?.btn.tag = indexPath.row
+        cell?.btn.addTarget(self, action: #selector(addToButton), for:.touchUpInside)
+                                    
         return cell!
+        
     }
     @objc func addToButton(sender:UIButton)
     {
-        let indexpath1 = IndexPath(row: sender.tag, section: 0)
-        c = c + SuperMartSecondViewController.shop[indexpath1.row].productPrice
+
+         let indexpath1 = IndexPath(row: sender.tag, section: 0)
+        d = d+1
+        print(" hii \(d)")
+        nextlbl.text = "ITEM \(String(d))"
+       c = c + SuperMartSecondViewController.shop[indexpath1.row].productPrice
         PriceAddViewController.select3 = c
     }
    

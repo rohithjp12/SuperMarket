@@ -517,14 +517,57 @@
                                     <outlet property="delegate" destination="Fwx-L2-eoj" id="TT1-Sa-Ca8"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZs-Wg-Xtj">
+                                <rect key="frame" x="45" y="753" width="303" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ak-s0-JgE">
+                                        <rect key="frame" x="10" y="0.0" width="150" height="70"/>
+                                        <color key="backgroundColor" red="0.19955220070413215" green="0.60038318056048767" blue="0.34832573585235282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="JZG-c8-2Zk"/>
+                                            <constraint firstAttribute="width" constant="150" id="Y4N-ip-evl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvQ-rN-3lt">
+                                        <rect key="frame" x="140" y="0.0" width="153" height="70"/>
+                                        <color key="backgroundColor" red="0.19955220069999999" green="0.60038318059999995" blue="0.34832573589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="QtE-yU-TVJ"/>
+                                            <constraint firstAttribute="width" constant="153" id="thO-Lc-g57"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Cart -&gt;">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                            <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="OQl-up-7v4" kind="show" id="NEB-Pw-NZ3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19955220069999999" green="0.60038318059999995" blue="0.34832573589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3Ws-Ve-Yka"/>
+                                    <constraint firstAttribute="bottom" secondItem="CvQ-rN-3lt" secondAttribute="bottom" id="Ja7-Gx-QTs"/>
+                                    <constraint firstItem="0ak-s0-JgE" firstAttribute="leading" secondItem="GZs-Wg-Xtj" secondAttribute="leading" constant="10" id="mfQ-hJ-mgn"/>
+                                    <constraint firstAttribute="trailing" secondItem="CvQ-rN-3lt" secondAttribute="trailing" constant="10" id="sMm-92-7Fc"/>
+                                    <constraint firstItem="CvQ-rN-3lt" firstAttribute="top" secondItem="GZs-Wg-Xtj" secondAttribute="top" id="yRU-jL-CjO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xDU-vF-kGF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GZs-Wg-Xtj" firstAttribute="leading" secondItem="xDU-vF-kGF" secondAttribute="leading" constant="45" id="3Vj-Vg-Wek"/>
+                            <constraint firstItem="GZs-Wg-Xtj" firstAttribute="top" secondItem="xDU-vF-kGF" secondAttribute="top" constant="650" id="Fr4-w4-jGr"/>
                             <constraint firstItem="kKf-XE-Ndt" firstAttribute="trailing" secondItem="xDU-vF-kGF" secondAttribute="trailing" id="OQy-r3-wYE"/>
                             <constraint firstAttribute="bottom" secondItem="kKf-XE-Ndt" secondAttribute="bottom" id="cH8-fg-ByS"/>
                             <constraint firstItem="kKf-XE-Ndt" firstAttribute="top" secondItem="jmt-xn-ABn" secondAttribute="top" id="dvn-1Z-DA5"/>
                             <constraint firstItem="kKf-XE-Ndt" firstAttribute="leading" secondItem="xDU-vF-kGF" secondAttribute="leading" id="ojs-SC-H3Y"/>
+                            <constraint firstItem="xDU-vF-kGF" firstAttribute="trailing" secondItem="GZs-Wg-Xtj" secondAttribute="trailing" constant="45" id="vn4-RX-LCe"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -537,7 +580,10 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cartShowView" destination="GZs-Wg-Xtj" id="7sP-QO-VIM"/>
+                        <outlet property="nextlbl" destination="0ak-s0-JgE" id="fjZ-vD-PxK"/>
                         <outlet property="shopCollectionView2" destination="kKf-XE-Ndt" id="qTv-iD-7Ul"/>
+                        <outlet property="showcartBtn" destination="CvQ-rN-3lt" id="oEV-bu-Le2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZF-zJ-U4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1074,7 +1120,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kB7-Hl-lN4"/>
+        <segue reference="NEB-Pw-NZ3"/>
+        <segue reference="Ndb-le-ESH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="basket3" width="267" height="189"/>

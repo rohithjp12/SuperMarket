@@ -16,8 +16,9 @@ class PriceAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  totalAmount.text = select4
-        totalAmount.text = String(PriceAddViewController.select3)
+    
+            totalAmount.text = String(PriceAddViewController.select3)
+        
     }
     
     
